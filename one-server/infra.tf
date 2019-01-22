@@ -1,7 +1,7 @@
 #Providers
 provider "aws" {
-#  access_key = "YOUR_ACCESS_ID_KEY_HERE"
-#  secret_key = "YOUR_SECRET_KEY_HERE"
+  access_key = "YOUR_ACCESS_ID_KEY_HERE"
+  secret_key = "YOUR_SECRET_KEY_HERE"
   region     = "eu-west-1"
 }
 
@@ -113,9 +113,9 @@ resource "aws_security_group_rule" "nodes-sg-allow-http"{
 
 #Create Machine
 resource "aws_instance" "asg-node" {
-  ami                         = "ami-f90a4880"
+  ami                         = "AMI-ID"
   instance_type               = "t2.micro"
-  key_name                    = "team-a"
+  key_name                    = "YOUR-KEY-NAME"
   vpc_security_group_ids      = ["${aws_security_group.nodes-sg.id}"]
   associate_public_ip_address = true
   availability_zone           = "eu-west-1a"
